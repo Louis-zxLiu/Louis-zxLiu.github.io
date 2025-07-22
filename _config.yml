@@ -2,7 +2,7 @@
 title: Zhixuan Liu个人主页
 description: A brief description of your site
 url: "https://Louis-zxLiu.github.io"  # 你的 GitHub Pages 网址
-baseurl:"" # 如果是项目站点，添加仓库名；个人站点留空
+baseurl: "" # 如果是项目站点，添加仓库名；个人站点留空
 
 # 作者信息
 author:
