@@ -1,0 +1,30 @@
+# _config.yml
+title: Zhixuan Liu个人主页
+description: A brief description of your site
+url: "https://Louis-zxLiu.github.io"  # 你的 GitHub Pages 网址
+baseurl:"" # 如果是项目站点，添加仓库名；个人站点留空
+
+# 作者信息
+author:
+  name: Zhixuan Liu
+  email: 2427405039@stu.suda.edu.cn
+
+# 构建设置
+markdown: kramdown
+theme: minima  # 使用 GitHub Pages 支持的主题
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 永久链接格式
+permalink: /:year/:month/:day/:title/
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
