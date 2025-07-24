@@ -1,43 +1,239 @@
----
-layout: default
-title: 个人主页
----
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
+    <meta name="description" content="刘志轩的个人主页">
+    <title>个人主页 - 刘志轩</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f9f9f9;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
+
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
         }
+
+        .profile-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-header {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #f0f0f0;
+            overflow: hidden; /* 确保图片不会溢出圆形边界 */
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary-color);
+        }
+
         h1 {
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
         }
-        p {
-            color: #666;
-            margin: 5px 0;
+
+        .title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .info-section {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: rgba(240, 240, 240, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            transform: translateX(5px);
+        }
+
+        .info-icon {
+            margin-right: 15px;
+            width: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                margin: 20px auto;
+            }
+            
+            .profile-card {
+                padding: 25px 15px;
+            }
+            
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Zhixuan Liu</h1>
-        <p>邮箱：2427405039@stu.suda.edu.cn</p>
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar">
+                    <!-- 要插入图片，请取消下面一行的注释并设置图片路径 -->
+                    <!-- <img src="path/to/your-photo.jpg" alt="Zhixuan Liu"> -->
+                    <div class="avatar-placeholder">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+                <h1>Zhixuan Liu</h1>
+                <div class="title">苏州大学本科生</div>
+            </div>
+            
+            <div class="info-section">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div>2427405039@stu.suda.edu.cn</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa fa-graduation-cap"></i>
+                    </div>
+                    <div>苏州大学</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div>计算机科学与技术</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <div>苏州，中国</div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/Louis-zxLiu" class="social-link">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+            <div class="footer">
+                <p>© 2025 Zhixuan Liu | 最后更新于 2025年</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
