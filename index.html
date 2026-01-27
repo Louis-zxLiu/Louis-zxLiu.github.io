@@ -1,536 +1,116 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="刘志轩的个人主页 - 苏州大学计算机科学与技术专业学生">
-    <title>刘志轩 - 个人主页</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
-            --text-color: #2d3748;
-            --light-text: #718096;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
-        }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Zhixuan Liu's Academic Webpage" />
+    <meta name="author" content="Zhixuan Liu" />
+    <title id="title">Zhixuan Liu - Homepage</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
 
-        body {
-            font-family: 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--text-color);
-            line-height: 1.7;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
 
-        /* 头部卡片 */
-        .header-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            padding: 50px;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
 
-        .header-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-        }
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
 
-        .avatar-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 25px;
-        }
-
-        .avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 5px solid transparent;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(135deg, var(--primary-color), var(--accent-color)) border-box;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .avatar-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
-
-        .title {
-            color: var(--light-text);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .bio {
-            max-width: 700px;
-            margin: 25px auto 30px;
-            color: var(--light-text);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        .contact-item i {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        /* 内容区域 */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .section-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-        }
-
-        .section-title i {
-            color: var(--primary-color);
-            font-size: 1.4rem;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-color), transparent);
-            margin-left: 15px;
-        }
-
-        /* 教育背景 */
-        .education-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .education-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .education-school {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.1rem;
-        }
-
-        .education-date {
-            color: var(--light-text);
-            font-size: 0.9rem;
-        }
-
-        .education-major {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .education-details {
-            color: var(--light-text);
-            font-size: 0.95rem;
-        }
-
-        /* 获奖经历 */
-        .award-item {
-            padding: 18px;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .award-item:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
-            transform: translateX(5px);
-        }
-
-        .award-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .award-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .award-name {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.05rem;
-        }
-
-        .award-date {
-            color: var(--light-text);
-            font-size: 0.9rem;
-        }
-
-        .award-level {
-            color: var(--primary-color);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .award-description {
-            color: var(--light-text);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        /* 技能标签 */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            padding: 8px 18px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        /* 社交链接 */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .social-link {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-link:hover {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
-        }
-
-        /* 页脚 */
-        .footer {
-            text-align: center;
-            padding: 25px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
-            color: var(--light-text);
-            font-size: 0.95rem;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-            }
-
-            .header-card {
-                padding: 35px 25px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .section-card {
-                padding: 25px 20px;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .education-header,
-            .award-header {
-                flex-direction: column;
-                gap: 5px;
-            }
-        }
-
-        /* 动画效果 */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header-card,
-        .section-card,
-        .footer {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .section-card:nth-child(1) { animation-delay: 0.1s; }
-        .section-card:nth-child(2) { animation-delay: 0.2s; }
-        .section-card:nth-child(3) { animation-delay: 0.3s; }
-    </style>
+    <!-- Markdown & Yaml -->
+    <script type="text/javascript" src="static/js/marked.min.js"></script>
+    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+    
+    <!-- Core JS-->
+    <script type="text/javascript" src="static/js/scripts.js"></script>
 </head>
-<body>
-    <div class="container">
-        <!-- 头部个人信息 -->
-        <div class="header-card">
-            <div class="avatar-wrapper">
-                <div class="avatar">
-                    <!-- 要插入图片，请取消下面一行的注释并设置图片路径 -->
-                    <img src="avatar.jpg" alt="刘志轩">
-                    <div class="avatar-placeholder">
-                        <i class="fa fa-user"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <h1>刘志轩 Zhixuan Liu</h1>
-            <div class="title">苏州大学 · 计算机科学与技术专业本科生</div>
-            
-            <p class="bio">
-                热爱编程与技术创新，专注于计算机科学领域的学习与研究。
-                致力于通过技术解决实际问题，不断提升专业技能，追求卓越。
-            </p>
 
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fa fa-envelope"></i>
-                    <span>2427405039@stu.suda.edu.cn</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa fa-map-marker"></i>
-                    <span>江苏 · 苏州</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa fa-github"></i>
-                    <span>Louis-zxLiu</span>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="https://github.com/Louis-zxLiu" class="social-link" title="GitHub">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="mailto:2427405039@stu.suda.edu.cn" class="social-link" title="邮箱">
-                    <i class="fa fa-envelope"></i>
-                </a>
-                <!-- 可以添加更多社交链接 -->
-                <!-- <a href="#" class="social-link" title="LinkedIn">
-                    <i class="fa fa-linkedin"></i>
-                </a> -->
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top">Zhixuan Liu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                MENU <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#awards">AWARDS</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#experience">EXPERIENCE</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <!-- 内容区域 -->
-        <div class="content-grid">
-            <!-- 教育背景 -->
-            <div class="section-card">
-                <h2 class="section-title">
-                    <i class="fa fa-graduation-cap"></i>
-                    教育背景
-                </h2>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div class="education-school">苏州大学</div>
-                        <div class="education-date">2024 - 至今</div>
-                    </div>
-                    <div class="education-major">计算机科学与技术 · 本科</div>
-                    <div class="education-details">
-                        主修课程：数据结构、算法设计、操作系统、计算机网络等
-                    </div>
-                </div>
-                <!-- 可以添加更多教育经历 -->
-            </div>
-
-            <!-- 获奖经历 -->
-            <div class="section-card">
-                <h2 class="section-title">
-                    <i class="fa fa-trophy"></i>
-                    获奖经历
-                </h2>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <div class="award-name">十七届蓝桥杯</div>
-                        <div class="award-date">2025</div>
-                    </div>
-                    <div class="award-level">国家三等奖</div>
-                    <div class="award-description">大一新生，第一次参加蓝桥杯，获得国赛三等奖</div>
-                </div>
-
-                <div class="award-item">
-                    <div class="award-header">
-                        <div class="award-name">睿抗机器人开发者大赛</div>
-                        <div class="award-date">2025</div>
-                    </div>
-                    <div class="award-level">国家二等奖</div>
-                    <div class="award-description">大一新生，第一次参加睿抗机器人开发者大赛，获得国家二等奖</div>
-                </div>
-
-                <!-- 添加更多获奖记录 -->
-                <!-- <div class="award-item">
-                    <div class="award-header">
-                        <div class="award-name">您的奖项名称</div>
-                        <div class="award-date">年份</div>
-                    </div>
-                    <div class="award-level">奖项等级</div>
-                    <div class="award-description">获奖说明或描述</div>
-                </div> -->
-            </div>
-
-            <!-- 技能特长 -->
-            <div class="section-card">
-                <h2 class="section-title">
-                    <i class="fa fa-code"></i>
-                    技能特长
-                </h2>
-                <div class="skills-container">
-                    <span class="skill-tag">Python</span>
-                    <!-- <span class="skill-tag">Java</span> -->
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">数据结构</span>
-                    <span class="skill-tag">算法</span>
-                    <!-- <span class="skill-tag">Web开发</span> -->
-                    <!-- <span class="skill-tag">Git</span> -->
-                    <!-- 添加更多技能 -->
-                </div>
+    <!-- Top Section -->
+    <section class="top-section" style="background-image: url('static/assets/img/background.png'); height: 60vh; background-position: center 20%; background-size: cover;">
+        <div class="top-section-content">
+            <div class="container px-5">
+                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
             </div>
         </div>
+    </section>
 
-        <!-- 页脚 -->
-        <div class="footer">
-            <p>© 2025 刘志轩 Zhixuan Liu | 最后更新于 2025年10月</p>
-            <p style="margin-top: 8px; font-size: 0.85rem;">Built with ❤️ using HTML & CSS</p>
+    <!-- Photo -->
+    <div class="container px-5">
+        <div id="photo">
+            <img class="shadow" src="static/assets/img/photo.jpg" style="border-radius: 50%; width: 160px; height: 160px; object-fit: cover;">
         </div>
     </div>
+
+    <!-- Home -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
+        <div class="container px-5">
+            <header><h2 id="home-subtitle"> </h2></header>
+            <div class="main-body" id="home-md"></div>
+        </div>
+    </section>
+
+    <!-- Awards -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
+        <div class="container px-5">
+            <header><h2><i class="bi bi-award-fill"></i> AWARDS</h2></header>
+            <div class="main-body" id="awards-md"></div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="bg-gradient-primary-to-secondary-dark mt5 md5" id="experience">
+        <div class="container px-5">
+            <header><h2><i class="bi bi-briefcase-fill"></i> EXPERIENCE</h2></header>
+            <div class="main-body" id="experience-md"></div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
+        <div class="container px-5">
+            <header><h2><i class="bi bi-file-text-fill"></i> PUBLICATIONS</h2></header>
+            <div class="main-body" id="publications-md"></div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2"></div>
+                <a href="https://github.com/Louis-zxLiu">Github</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
