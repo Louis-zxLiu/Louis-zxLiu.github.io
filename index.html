@@ -50,6 +50,7 @@
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#awards">AWARDS</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#experience">EXPERIENCE</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#blog">BLOG</a></li>
                 </ul>
             </div>
         </div>
@@ -99,7 +100,36 @@
     <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
         <div class="container px-5">
             <header><h2><i class="bi bi-file-text-fill"></i> PUBLICATIONS</h2></header>
-            <div class="main-body" id="publications-md"></div>
+            
+            <div class="mb-4">
+                <button id="pub-filter-all" class="btn btn-primary btn-sm rounded-pill px-3 me-2" onclick="filterPublications('all')">All Publications</button>
+                <button id="pub-filter-selected" class="btn btn-outline-secondary btn-sm rounded-pill px-3" onclick="filterPublications('selected')">Selected Only</button>
+            </div>
+
+            <div id="publications-container">
+                <!-- Publications cards will be injected here -->
+            </div>
+            
+            <!-- Keep the original md container for fallback or additional text -->
+            <div class="main-body d-none" id="publications-md"></div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="blog">
+        <div class="container px-5">
+            <header>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2><i class="bi bi-journal-text"></i> BLOG</h2>
+                    <button id="back-to-blog-list" class="btn btn-outline-primary btn-sm" style="display: none;" onclick="showBlogList()">Back to List</button>
+                </div>
+            </header>
+            <div class="main-body" id="blog-list">
+                <!-- Blog list will be injected here -->
+            </div>
+            <div class="main-body" id="blog-content" style="display: none;">
+                <!-- Blog content will be injected here -->
+            </div>
         </div>
     </section>
 

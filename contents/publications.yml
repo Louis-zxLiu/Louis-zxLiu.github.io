@@ -1,0 +1,9 @@
+- title: "Training-Free Spatio-temporal Decoupled Reasoning Video Segmentation with Adaptive Object Memory"
+  authors: " Zhengtong Zhu, Jiaqing Fan†, <b>Zhixuan Liu</b>, Fanzhang Li"
+  venue: "AAAI 2026"
+  description: "We aim to design a training-free reasoning video segmentation framework that outperforms existing methods requiring fine-tuning, using only pre-trained models."
+  image: "static/assets/img/AAAI26.png" # 请替换为实际预览图路径
+  selected: false
+  links:
+    code: "https://github.com/machine928/SDAM"
+
