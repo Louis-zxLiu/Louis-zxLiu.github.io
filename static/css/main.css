@@ -16,10 +16,10 @@
 
 .top-section {
     position: relative;
-    padding: 10rem 0;
-    background-position: center;
+    padding: 6rem 0;
+    background-position: center 20%;
     background-size: cover;
-    height: 25rem;
+    height: 18rem;
 }
 
 .top-section h2 {
@@ -124,15 +124,81 @@ section .main-body{
     border-color: #a05a58;
 }
 
-#avatar img {
-    height: max(130px,min(200px,calc(100vw/6)));
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+.sidebar-sticky {
+    position: sticky;
+    top: 5rem;
+    height: calc(100vh - 5rem);
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+.sidebar-sticky::-webkit-scrollbar {
+    width: 0px;
+}
+
+.sidebar-info {
+    text-align: left;
+}
+
+.sidebar-info .name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    color: #333;
+}
+
+.sidebar-info .title {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-info .links {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.sidebar-info .links li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-info .links li i {
+    width: 25px;
+    font-size: 1.1rem;
+    color: var(--h-title-color);
+}
+
+.sidebar-info .links li a {
+    color: #444;
+    text-decoration: none;
+}
+
+.sidebar-info .links li a:hover {
+    color: var(--h-title-color);
 }
 
 @media screen and (max-width: 991px) {
-    #avatar {
-        margin: 0;
+    .sidebar-sticky {
+        position: static;
+        height: auto;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 2rem;
     }
+}
+
+#photo {
+    margin-top: 0;
+}
+
+#photo img {
+    width: 100%;
+    max-width: 230px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 

@@ -65,73 +65,95 @@
         </div>
     </section>
 
-    <!-- Photo -->
-    <div class="container px-5">
-        <div id="photo">
-            <img class="shadow" src="static/assets/img/photo.jpg" style="border-radius: 50%; width: 160px; height: 160px; object-fit: cover;">
+    <!-- Main Content Layout -->
+    <div class="container px-5 mt-5">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-lg-3 pe-lg-5">
+                <div class="sidebar-sticky">
+                    <div id="photo" class="mb-4">
+                        <img class="shadow" src="static/assets/img/photo.jpg">
+                    </div>
+                    <div class="sidebar-info">
+                        <div id="sidebar-name" class="name">Zhixuan Liu</div>
+                        <div id="sidebar-title" class="title">Undergraduate Student @ Soochow University</div>
+                        <ul class="links">
+                            <li><i class="bi bi-geo-alt"></i> <span>Suzhou, China</span></li>
+                            <li><i class="bi bi-envelope"></i> <a id="sidebar-email" href="mailto:2427405039@stu.suda.edu.cn">Email</a></li>
+                            <li><i class="bi bi-github"></i> <a href="https://github.com/Louis-zxLiu">Github</a></li>
+                        </ul>
+                        <hr>
+                        <div class="small text-muted">
+                            <p>Research Interests:<br>Computer Vision, LLM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="col-lg-9">
+                <!-- Home -->
+                <section class="bg-gradient-primary-to-secondary-light mb-5" id="home">
+                    <div class="container">
+                        <header><h2 id="home-subtitle"> </h2></header>
+                        <div class="main-body" id="home-md"></div>
+                    </div>
+                </section>
+
+                <!-- Awards -->
+                <section class="bg-gradient-primary-to-secondary-light mb-5" id="awards">
+                    <div class="container">
+                        <header><h2><i class="bi bi-award-fill"></i> AWARDS</h2></header>
+                        <div class="main-body" id="awards-md"></div>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section class="bg-gradient-primary-to-secondary-light mb-5" id="experience">
+                    <div class="container">
+                        <header><h2><i class="bi bi-briefcase-fill"></i> EXPERIENCE</h2></header>
+                        <div class="main-body" id="experience-md"></div>
+                    </div>
+                </section>
+
+                <!-- Publications -->
+                <section class="bg-gradient-primary-to-secondary-light mb-5" id="publications">
+                    <div class="container">
+                        <header><h2><i class="bi bi-file-text-fill"></i> PUBLICATIONS</h2></header>
+                        
+                        <div class="mb-4">
+                            <button id="pub-filter-all" class="btn btn-primary btn-sm rounded-pill px-3 me-2" onclick="filterPublications('all')">All Publications</button>
+                            <button id="pub-filter-selected" class="btn btn-outline-secondary btn-sm rounded-pill px-3" onclick="filterPublications('selected')">Selected Only</button>
+                        </div>
+
+                        <div id="publications-container">
+                            <!-- Publications cards will be injected here -->
+                        </div>
+                        
+                        <div class="main-body d-none" id="publications-md"></div>
+                    </div>
+                </section>
+
+                <!-- Blog -->
+                <section class="bg-gradient-primary-to-secondary-light mb-5" id="blog">
+                    <div class="container">
+                        <header>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2><i class="bi bi-journal-text"></i> BLOG</h2>
+                                <button id="back-to-blog-list" class="btn btn-outline-primary btn-sm" style="display: none;" onclick="showBlogList()">Back to List</button>
+                            </div>
+                        </header>
+                        <div class="main-body" id="blog-list">
+                            <!-- Blog list will be injected here -->
+                        </div>
+                        <div class="main-body" id="blog-content" style="display: none;">
+                            <!-- Blog content will be injected here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-
-    <!-- Home -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
-        <div class="container px-5">
-            <header><h2 id="home-subtitle"> </h2></header>
-            <div class="main-body" id="home-md"></div>
-        </div>
-    </section>
-
-    <!-- Awards -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
-        <div class="container px-5">
-            <header><h2><i class="bi bi-award-fill"></i> AWARDS</h2></header>
-            <div class="main-body" id="awards-md"></div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="bg-gradient-primary-to-secondary-dark mt5 md5" id="experience">
-        <div class="container px-5">
-            <header><h2><i class="bi bi-briefcase-fill"></i> EXPERIENCE</h2></header>
-            <div class="main-body" id="experience-md"></div>
-        </div>
-    </section>
-
-    <!-- Publications -->
-    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
-        <div class="container px-5">
-            <header><h2><i class="bi bi-file-text-fill"></i> PUBLICATIONS</h2></header>
-            
-            <div class="mb-4">
-                <button id="pub-filter-all" class="btn btn-primary btn-sm rounded-pill px-3 me-2" onclick="filterPublications('all')">All Publications</button>
-                <button id="pub-filter-selected" class="btn btn-outline-secondary btn-sm rounded-pill px-3" onclick="filterPublications('selected')">Selected Only</button>
-            </div>
-
-            <div id="publications-container">
-                <!-- Publications cards will be injected here -->
-            </div>
-            
-            <!-- Keep the original md container for fallback or additional text -->
-            <div class="main-body d-none" id="publications-md"></div>
-        </div>
-    </section>
-
-    <!-- Blog -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="blog">
-        <div class="container px-5">
-            <header>
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2><i class="bi bi-journal-text"></i> BLOG</h2>
-                    <button id="back-to-blog-list" class="btn btn-outline-primary btn-sm" style="display: none;" onclick="showBlogList()">Back to List</button>
-                </div>
-            </header>
-            <div class="main-body" id="blog-list">
-                <!-- Blog list will be injected here -->
-            </div>
-            <div class="main-body" id="blog-content" style="display: none;">
-                <!-- Blog content will be injected here -->
-            </div>
-        </div>
-    </section>
 
     <!-- Footer-->
     <footer class="bg-bottom text-center py-5">
